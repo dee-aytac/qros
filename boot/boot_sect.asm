@@ -26,7 +26,7 @@ load_kernel:
 
 
     mov bx, KERNEL_OFFSET ; Read from disk and store in 0x1000
-    mov dh, 2 ; how many sectors to load, this is important since there is an error in the book
+    mov dh, 15 ; how many sectors to load, this is important since there is an error in the book
     mov dl, [BOOT_DRIVE]
     call disk_load
     ret

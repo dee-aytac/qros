@@ -1,6 +1,6 @@
 #include "screen.h"
-#include "low_level.h"
-unsigned char* vidmem = (unsigned char)0xb8000;
+#include "../kernel/low_level.h"
+unsigned char* vidmem;//(unsigned char)0xb8000;
 
 int get_screen_offset(int row, int col){
   return (row * MAX_COLS + col) * 2;
@@ -24,6 +24,11 @@ void set_cursor(int offset){
 
 void clear_screen()
 {
+	// int i;
+	// for(i = 0; i < 80*25*2; i += 2) {
+	// 	vidmem[i] = " ";
+	// 	vidmem[i + 1] = WHITE_ON_BLACK;
+	// }
 	int i,j;
 	for(i = 0; i < MAX_ROWS; i++){
 		for(j = 0;j < MAX_COLS; j++){
@@ -103,4 +108,6 @@ void print(char *str)
 		print_char(str[i], -1, -1, 0);
 }
 
-
+void screen_init(){
+	vidmem = (unsigned char*)VIDEO_ADDRESS;
+}
