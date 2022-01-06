@@ -11,12 +11,12 @@
 #define REG_SCREEN_CTRL 0x3D4
 #define REG_SCREEN_DATA 0x3D5
 
-//unsigned char* vidmem = (unsigned char)0xb8000;
 void clear_screen();
 int get_cursor();
 void set_cursor(int offset);
 void print_at(char* message, int row, int col);
 void print_char(char c, int row, int col, char att);
 void print(char *str);
+void screen_init();
 
 #endif
