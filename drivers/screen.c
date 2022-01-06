@@ -83,9 +83,9 @@ void print_char(char c, int row, int col, char attribute_byte){
 	}
 
 	int rows;
-	switch (c){
+	switch (c) {
 		case '\n':
-			rows = offset / (2*MAX_COLS);
+			rows = offset / (2 * MAX_COLS);
 			offset = get_screen_offset(rows, 79);
 			break;
 		default:
@@ -100,7 +100,7 @@ void print_char(char c, int row, int col, char attribute_byte){
 void print(char *str)
 {
 	int i;
-	for(i=0; str[i]!='\0'; i++)
+	for(i = 0; str[i] != '\0'; i++)
 		print_char(str[i], -1, -1, 0);
 }
 

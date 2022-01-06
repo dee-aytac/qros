@@ -16,4 +16,15 @@ void idt_set_gate(unsigned char num, unsigned long base, unsigned short sel, uns
 void idt_install();
 void isrs_install();
 
+void irq_install();
+void irq_uninstall_handler(int irq);
+void irq_install_handler(int irq, void (*handler)(struct regs *r));
+
+void timer_install();
+void timer_wait(int ticks);
+void timer_handler(struct regs *r);
+
+void keyboard_handler(struct regs *r);
+void keyboard_install();
+
 #endif
